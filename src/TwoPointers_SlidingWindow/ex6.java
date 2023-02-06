@@ -3,12 +3,24 @@ package TwoPointers_SlidingWindow;
 import java.util.Scanner;
 
 public class ex6 {
-    public static int solution(int[] arr,int m){
+    public static int solution(int n,int[] arr,int m){
         int answer=0;
-        //1.lt가 0을 만나면 cnt++;
-        //2.if(cnt==2 && rt가 0을 만나면 -> cnt-- , lt이동 , rt이동 , cnt++
-        //3.이 방식으로 max를 이용해서 길이 최댓값 구하기.
-
+        int rt=0; int lt=0;
+        int cnt=0;
+        while(rt<n){
+            if(cnt<=m) {
+                rt++;
+                if(arr[rt]==0) {
+                    cnt++;
+                    continue;
+                }
+            }
+            else if(cnt>m && arr[rt]==0) {
+                lt++;
+                if(arr[lt]==0) cnt--;
+            }
+            answer = Math.max(answer,(rt-lt));
+        }
         return answer;
     }
 
@@ -17,11 +29,11 @@ public class ex6 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int[] arr = new int[n];
+        int[] arr = new int[n+1];
         for(int i=0; i<n; i++){
             arr[i] = sc.nextInt();
         }
 
-        System.out.println(solution(arr,m));
+        System.out.println(solution(n,arr,m));
     }
 }
