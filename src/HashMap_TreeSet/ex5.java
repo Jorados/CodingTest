@@ -7,7 +7,6 @@ import java.util.TreeSet;
 
 //k번째 큰 수
 public class ex5 {
-
     public static int solution(int n,int m,int[] arr){
         int answer=-1;
         TreeSet<Integer> TS = new TreeSet<>(Collections.reverseOrder());
