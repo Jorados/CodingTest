@@ -1,37 +1,35 @@
 package Sorting_Searching;
 
-import javax.security.sasl.SaslClient;
 import java.util.Scanner;
 
-//뮤직비디오(결정알고리즘)
-public class ex9 {
-    public static int solution(int n,int m,int[] arr){
+//마구간 정하기(결정알고리즘)
+public class ex10 {
+    public static int solution(int n,int m,int[] arr) {
         int answer=0;
-        int lt=arr[n-1]; int rt=0;
-        for(int i=0; i<n; i++) rt += arr[i];
-
+        int lt=arr[0]; int rt=arr[n-1];
         while(lt<=rt){
-            int mid = (lt+rt)/2;
-            if(count(arr,mid)<=m){ //DVD 2개로도 되면, 3개로도 된다는뜻!
+            int mid=(lt+rt)/2;
+            if(count(arr,mid)>=m){
                 answer=mid;
-                rt=mid-1;
+                lt=mid+1;
             }
-            else lt=mid+1;
+            else rt=mid-1;
         }
         return answer;
     }
 
     public static int count(int[] arr,int mid){
-        int cnt=1,sum=0;
-        for(int x : arr){
-            if(sum+x>mid){
+        int cnt=1;
+        int ep=arr[0];
+        for(int i=1; i<arr.length; i++){
+            if(arr[i]-ep>=mid){
                 cnt++;
-                sum=x;
+                ep=arr[i];
             }
-            else sum+=x;
         }
         return cnt;
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
