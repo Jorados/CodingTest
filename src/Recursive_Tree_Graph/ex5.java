@@ -1,34 +1,39 @@
 package Recursive_Tree_Graph;
 
 
-class Node2 {
+//이진트리 순회
+//전위 중위 후위
+
+class Node{
     int data;
-    Node2 lt,rt;
-    public Node2(int val) {
-        data = val;
+    Node lt,rt; //node객체의 주소를 저장하는 변수
+    public Node(int val){
+        data=val;
         lt=rt=null;
     }
 }
+
 public class ex5 {
 
-    static Node2 root;
-    public static void DFS(Node2 root){
-        if(root == null) return;
-        else{
+    public static void DFS(Node root){
+        if(root==null) return;
+        else {
+            System.out.print(root.data + " ");
             DFS(root.lt);
             DFS(root.rt);
-            System.out.print(root.data + " ");
         }
     }
 
+    static Node root;
+
     public static void main(String[] args) {
-        root = new Node2(1);
-        root.lt = new Node2(2);
-        root.rt=new Node2(3);
-        root.lt.lt=new Node2(4);
-        root.lt.rt=new Node2(5);
-        root.rt.lt=new Node2(6);
-        root.rt.rt=new Node2(7);
+        root=new Node(1);
+        root.lt=new Node(2);
+        root.rt=new Node(3);
+        root.lt.lt=new Node(4);
+        root.lt.rt=new Node(5);
+        root.rt.lt=new Node(6);
+        root.rt.rt=new Node(7);
         DFS(root);
     }
 }

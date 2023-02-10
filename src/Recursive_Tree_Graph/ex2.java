@@ -3,12 +3,11 @@ package Recursive_Tree_Graph;
 import java.util.Scanner;
 
 public class ex2 {
+
     public static void solution(int n){
         if(n==0) return;
-        else{
-            solution(n/2);
-            System.out.print(n%2);
-        }
+        solution(n/2);
+        System.out.println(n%2);
     }
 
     public static void main(String[] args) {

@@ -22,6 +22,7 @@ public class ex10 {
         int cnt=1;
         int ep=arr[0];
         for(int i=1; i<arr.length; i++){
+            //arr[i]-ep -> 말과 말사이의 거리
             if(arr[i]-ep>=mid){
                 cnt++;
                 ep=arr[i];
