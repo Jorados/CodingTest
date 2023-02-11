@@ -23,4 +23,14 @@ public class ex9 {
         root.lt.rt=new Node3(5);
         System.out.println(DFS(0,root));
     }
+
+    class Solution {
+        public int[] solution(long n) {
+            int[] answer = {};
+
+
+
+            return answer;
+        }
+    }
 }
