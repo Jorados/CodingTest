@@ -49,5 +49,6 @@ public class ex13 {
         for(int i=2; i<=n; i++){
             System.out.println(i + " : " + dis[i]);
         }
+
     }
 }
