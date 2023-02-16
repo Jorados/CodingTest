@@ -1,6 +1,5 @@
 package Sorting_Searching;
 
-import javax.security.sasl.SaslClient;
 import java.util.Scanner;
 
 //뮤직비디오(결정알고리즘)
