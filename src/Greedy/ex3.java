@@ -4,43 +4,48 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-class Clock implements Comparable<Clock>{
+class Time2 implements Comparable<Time2>{
     int time;
     char state;
-    public Clock(int time, char state) {
+
+    public Time2(int time, char state) {
         this.time = time;
         this.state = state;
     }
+
     @Override
-    public int compareTo(Clock o) {
+    public int compareTo(Time2 o) {
         if(this.time == o.time) return this.state - o.state;
-        else return this.time - o.time;
+        return this.time - o.time;
     }
 }
+
 public class ex3 {
 
-    public static int solution(ArrayList<Clock> arr, int n) {
-        int answer = Integer.MIN_VALUE;
+    public static int solution(ArrayList<Time2> arr){
+        int answer=0;
         int cnt=0;
         Collections.sort(arr);
-        for(Clock x : arr){
+        for(Time2 x : arr){
             if(x.state=='s') cnt++;
             else cnt--;
-            answer=Math.max(answer,cnt);
+            answer = Math.max(answer,cnt);
         }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
-        ArrayList<Clock> arr = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        ArrayList<Time2> arr = new ArrayList<>();
+        for(int i=0; i<n; i++){
             int st = sc.nextInt();
             int et = sc.nextInt();
-            arr.add(new Clock(st, 's'));
-            arr.add(new Clock(et,'e'));
+            arr.add(new Time2(st,'s'));
+            arr.add(new Time2(et,'e'));
         }
-        System.out.println(solution(arr, n));
+
+        System.out.println(solution(arr));
     }
 }
