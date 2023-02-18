@@ -11,12 +11,10 @@ import java.util.Scanner;
 class Lecture implements Comparable<Lecture> {
     int money;
     int day;
-
     public Lecture(int money,int day){
         this.money = money;
         this.day = day;
     }
-
     @Override
     public int compareTo(Lecture o) {
         if(this.money == o.money) return o.day-this.day;
@@ -53,5 +51,4 @@ public class ex4 {
         }
         System.out.println(solution(arr));
     }
-
 }
