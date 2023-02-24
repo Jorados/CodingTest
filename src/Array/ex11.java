@@ -10,7 +10,6 @@ public class ex11 {
     public static int solution(int n,int[][] arr){
         int answer =0;
         int max=0;
-        int[] arr2 = new int[n];
         //5명끼리 서로 돌리고
         for(int i=0; i<n; i++){
             int cnt=0;
