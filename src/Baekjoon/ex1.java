@@ -4,40 +4,31 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
-//백준 9012번
+//백준 9012번 - 괄호
 public class ex1 {
-    public static ArrayList<String> solution(int n,String[] arr){
-        ArrayList<String> answer = new ArrayList<>();
+    public static String solution(String s){
 
         Stack<Character> stack = new Stack<>();
+        for (int i = 0; i<s.length(); i++) {
 
-        for(String s : arr){
-            for(char ch : s.toCharArray()){
-                if(ch=='(') stack.push(ch);
-                else if(stack.isEmpty() && ch==')') {
-                    answer.add("NO");
-                    stack.clear();
-                    break;
-                }
-                else if(!stack.isEmpty() && ch==')') stack.pop();
-            }
-            if(stack.isEmpty()) answer.add("YES");
-            else if(!stack.isEmpty()) answer.add("NO");
+            char c = s.charAt(i);
+
+            if (c == '(')  stack.push(c);
+            else if (stack.isEmpty()) return "NO";
+            else stack.pop();
         }
-        return answer;
+
+        if (stack.empty()) return "YES";
+        else return "NO";
     }
 
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
 
         int n = sc.nextInt();
-        String[] arr =new String[n];
 
-        for(int i=0; i<n; i++){
-            arr[i] = sc.next();
-        }
-        for(String x : solution(n,arr)){
-            System.out.println(x);
+        for(int i=0; i<n; i++) {
+            System.out.println(solution(sc.next()));	// nextLine()쓰면 안된다.
         }
     }
 }
