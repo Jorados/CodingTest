@@ -3,7 +3,7 @@ package Baekjoon;
 import java.util.Scanner;
 import java.util.Stack;
 
-//백준 9935 문자열 폭발
+//백준 9935 - 문자열 폭발
 public class ex3 {
     public static String solution(String s,String boom){
         String answer="";

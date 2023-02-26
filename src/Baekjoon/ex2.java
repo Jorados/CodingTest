@@ -8,10 +8,14 @@ import java.util.Stack;
 
 //백준 2812 - 크게만들기
 public class ex2 {
-    public static String solution(int n,int m,String s){
-        String answer="";
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        String s = sc.next();
+
         int cnt=m;
-        //최솟값을 n만큼 빼기
         Stack<Character> stack = new Stack<>();
         for(int i=0; i<s.length(); i++) {
             if (!stack.isEmpty()) {
@@ -22,20 +26,15 @@ public class ex2 {
             }
             else stack.push(s.charAt(i));
         }
-        StringBuilder sb = new StringBuilder();
-        for(int i=0; i<stack.size(); i++){
-            sb.append(stack.pop());
+        for(char c : stack){
+            System.out.print(c + " ");
         }
-        answer = sb.reverse().toString();
-        return answer;
-    }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        StringBuffer sb = new StringBuffer();
+        for(char c: stack){
+            sb.append(c);
+        }
 
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        String s = sc.next();
-        System.out.println(solution(n,m,s));
+
     }
 }
