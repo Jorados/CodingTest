@@ -13,26 +13,32 @@ public class ex4 {
         Stack<Integer> stack1 = new Stack<>();
         Stack<Integer> stack2 = new Stack<>();
         int max=0;
-
+        int cnt=0;
         for(int i=0; i<arr.length; i++){
             if(i%2==1) {
-                for(int j=1; j<=arr[i]; j++) {
-                    stack1.push(j);
+                while(stack1.size() < arr[i]){
+                    stack1.push(cnt++);
                 }
+                cnt=0;
             }
             else if(i%2==0){
-                for(int j=1; j<=arr[i]; j++){
-                    stack2.push(i);
+                while(stack2.size() < arr[i]){
+                    stack2.push(cnt++);
                 }
+                cnt=0;
             }
 
-            if(!stack1.isEmpty() && !stack2.isEmpty() && stack1.size() > stack2.size() && (stack2.size() * 2) > max){
-                    max = stack2.size() * 2;
+            if(!stack1.isEmpty() && !stack2.isEmpty() && stack1.size() > stack2.size()){
+                    if((stack2.size() * 2) > max){
+                        max = stack2.size() * 2;
+                    }
                     stack1.clear();
                     stack2.clear();
             }
-            else if(!stack1.isEmpty() && !stack2.isEmpty() && stack1.size() < stack2.size() && (stack1.size() * 2) > max){
-                    max = stack1.size() * 2;
+            else if(!stack1.isEmpty() && !stack2.isEmpty() && stack1.size() < stack2.size()){
+                    if((stack1.size() * 2) > max){
+                        max = stack1.size() * 2;
+                    }
                     stack1.clear();
                     stack2.clear();
             }
