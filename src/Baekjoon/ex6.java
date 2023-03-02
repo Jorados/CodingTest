@@ -57,5 +57,7 @@ public class ex6 {
         for(int x : arr){
             System.out.println(x);
         }
+
+
     }
 }
