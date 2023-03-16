@@ -26,7 +26,6 @@ public class ex2468 {
             }
         }
     }
-    //i 보다 낮은 곳은 다 0으로 만들고나서 -> DFS 를 호출해서 영역체크
     public static void solution(int[][] arr,int[][] ch, int h){
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
