@@ -16,7 +16,6 @@ public class ex2309 {
         cnt-=100;
         Arrays.sort(arr);
 
-
         for(int i=0; i<8; i++){
             for(int j=i+1; j<9; j++){
                 if(arr[i]+arr[j]==cnt){
@@ -27,7 +26,6 @@ public class ex2309 {
         }
         return arr;
     }
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
