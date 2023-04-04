@@ -20,7 +20,7 @@ public class ex2178 {
     static int[] dy={1,0,-1,0};
     static int n,m,answer=Integer.MAX_VALUE,cnt=1;
     static int[][] board;
-    static int[][] ch; //뒤로 안돌아가기위한 체크배열
+    static int[][] ch; //거리체크 배열
 
     public static void BFS(int x, int y){
         Queue<Point> Q = new LinkedList<>();
