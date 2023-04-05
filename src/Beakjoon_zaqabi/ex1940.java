@@ -2,6 +2,8 @@ package Beakjoon_zaqabi;
 
 import java.util.Scanner;
 
+
+// 주몽 - S4
 public class ex1940 {
 
     static int n,m;
