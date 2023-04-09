@@ -10,6 +10,7 @@ public class ex9996 {
     public static ArrayList<String> solution(int n,String s, String[] arr){
         ArrayList<String> answer = new ArrayList<>();
 
+        // '*'을 기준으로 문자열을 나누는 법.
         String[] split = s.split("\\*");
 
         for(String str : arr){
@@ -26,7 +27,6 @@ public class ex9996 {
                 else answer.add("NE");
             }
         }
-
         return answer;
     }
 
