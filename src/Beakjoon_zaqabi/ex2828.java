@@ -26,7 +26,6 @@ public class ex2828 {
                 right-=(left-x);
                 left=x;
             }
-
             else{
                 answer+=(x-right);
                 left+=(x-right);
