@@ -18,7 +18,7 @@ public class ex2910 {
 
         // List 에다가 map 을 담아서 내림차순 정렬
         ArrayList<Integer> list = new ArrayList<>(map.keySet());
-        // 내림차순 정렬
+        // (저장 순서를 지키면서 크기별로) value 내림차순 정렬
         Collections.sort(list, new Comparator<Integer>() {
             @Override
             public int compare(Integer a, Integer b) {
@@ -27,6 +27,7 @@ public class ex2910 {
             }
         });
 
+        //출력
         for(int x : list){
             for(int i=0; i<map.get(x); i++){
                 if(x>0){
