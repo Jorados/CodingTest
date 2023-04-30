@@ -11,7 +11,6 @@ public class ex17413 {
     static Stack<Character> stack = new Stack<>();
     static StringBuilder sb = new StringBuilder();
     public static void solution(String s){
-        String answer="";
         boolean flag=false;
 
         for(char ch : s.toCharArray()){
