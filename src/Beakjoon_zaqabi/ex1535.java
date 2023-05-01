@@ -16,7 +16,6 @@ public class ex1535 {
 
         while(health>0){
             for(int i=0; i<n; i++){
-
                 health-=life[i];
 
 
