@@ -37,7 +37,6 @@ public class ex1652 {
             }
         }
         System.out.print(a+" "+b);
-
     }
 
     public static void main(String[] args) {
