@@ -13,7 +13,7 @@ public class ex11724 {
     static int cnt=0;
 
     public static void DFS(int v){
-        if(ch[v]==true) return;
+        if(ch[v]==true) return; // 밑에 for 문에 의해 계속 같은 곳 방문 가능성 때문에
         else{
             ch[v]=true;
             for(int i=1; i<=n; i++){
