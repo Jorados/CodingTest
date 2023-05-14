@@ -3,7 +3,6 @@ package Baekjoon;
 import java.util.Scanner;
 
 public class ex3187 {
-
     static int n,m;
     static char[][] board;
     static boolean[][] ch;
@@ -11,7 +10,6 @@ public class ex3187 {
     static int[] dy={1,0,-1,0};
     static int wolf=0,sheep=0;
     static int all_wolf=0,all_sheep=0;
-
     public static void DFS(int x,int y){
         ch[x][y] = true;
         if(board[x][y]=='k') sheep++;
@@ -38,16 +36,13 @@ public class ex3187 {
             }
         }
     }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         n = sc.nextInt();
         m = sc.nextInt();
-
         board = new char[n][m];
         ch = new boolean[n][m];
-
         for(int i=0; i<n; i++){
             char[] str = sc.next().toCharArray();
             for(int j=0; j<m; j++){
