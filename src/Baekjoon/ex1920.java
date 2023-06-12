@@ -36,14 +36,15 @@ public class ex1920 {
             arr[i] = sc.nextInt();
         }
 
-        // 배열은 반드시 정렬되어있어야한다.
+        // 배열은 반드시 정렬되어있어야한다. -> 이분탐색 필수조건
         Arrays.sort(arr);
 
         int m = sc.nextInt();
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<m; i++) {
+            int key = sc.nextInt();
             // 찾고자 하는 값이 있을 경우 1, 없을 경우 0을 출력해야한다.
-            if(binarySearch(arr, sc.nextInt()) >= 0) {
+            if(binarySearch(arr,key) >= 0) {
                 sb.append(1).append('\n');
             }
             else {
