@@ -11,15 +11,9 @@ public class ex1431 {
 
     static int n;
     static ArrayList<String> arr;
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        n = sc.nextInt();
-        arr = new ArrayList<>();
-        for(int i=0; i<n; i++){
-            arr.add(sc.next());
-        }
 
+    public static void solution(){
         // 1. 길이가 짧은 순
         // 2. 길이가 같다면 , 문자에 속한 숫자의 합이 적은 순
         // 3. 이렇게 해도 안되면 , 그냥 사전순 정렬
@@ -36,7 +30,6 @@ public class ex1431 {
                     return o1.length() - o2.length(); // 길이 다르면 작은순 오름차
                 }
             }
-
             // 숫자 합구하기
             private int sum(String str) {
                 int sum = 0;
@@ -46,12 +39,23 @@ public class ex1431 {
                 }
                 return sum;
             }
-
         });
 
         for(int i=0; i<n; i++){
             System.out.println(arr.get(i));
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        arr = new ArrayList<>();
+        for(int i=0; i<n; i++){
+            arr.add(sc.next());
+        }
+
+        solution();
     }
 
 
