@@ -9,8 +9,6 @@ public class ex22352 {
     static int n,m;
     static int[][] board;
     static int[][] compare;
-    // 한 영역만 바뀌어 있으면 됨
-    // 위에 4*4까지 탐색후, 밑을 DFS()로 침투한 후에 같으면 0으로 만들어버리고 다르면 true?
     static boolean flag=false;
     static String answer="YES";
     static int[] dx = {-1, 1, 0, 0};
