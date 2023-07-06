@@ -1,10 +1,7 @@
 package Baekjoon;
 
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 // 접두사 - 정렬 - S1
 // indexOf는 특정 문자나 문자열이 있는지 없는지 검사하여 인덱스를 리턴하는 함수.
@@ -23,27 +20,24 @@ public class ex1141 {
             }
         });
 
-        HashSet<String> set = new HashSet<>();
+        ArrayList<String> list = new ArrayList<>();
         for(String s1 : arr){
-            if(set.size()==0){
-                set.add(s1);
+            if(list.size()==0){
+                list.add(s1);
             }
 
             boolean flag = true;
-            for(String s2 : set){
+            for(String s2 : list){
                 if(s2.indexOf(s1)==0) {
                     flag = false;
                     break;
                 }
             }
-            if(flag) set.add(s1);
+            if(flag) list.add(s1);
 
         }
 
-        System.out.println(set.size());
-
-
-
+        System.out.println(list.size());
     }
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
