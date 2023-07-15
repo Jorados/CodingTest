@@ -40,6 +40,8 @@ public class truck {
                 }
             }
 
+
+
             if(bridge_w<weight && Q2.size()>0){
                 if(bridge_w + Q2.peek() <= weight){
                     Integer tmp = Q2.poll();
