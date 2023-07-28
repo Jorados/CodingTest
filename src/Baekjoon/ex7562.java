@@ -54,8 +54,6 @@ public class ex7562 {
             dis = new int[n][n];
             ch = new boolean[n][n];
 
-
-
             ArrayList<Point> arr = new ArrayList<>();
             for(int i=0; i<2; i++){
                 int st = sc.nextInt();
