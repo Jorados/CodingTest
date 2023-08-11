@@ -42,5 +42,6 @@ public class SkillTree {
         }
         solution();
         System.out.println(answer);
+        //
     }
 }
