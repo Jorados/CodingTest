@@ -3,12 +3,10 @@ import java.util.*;
 
 class Car{
     int time;
-    int number;
-    int state;
-    public Car (int time,int number,int state){
+    String number;
+    public Car (int time,String number){
         this.time = time;
         this.number = number;
-        this.state = state;
     }
 }
 
@@ -16,6 +14,7 @@ public class CarFee {
     static int[] fees;
     static String[] records;
     static int[] answer = {};
+    static int lastTime = 0;
     static ArrayList<Car> list = new ArrayList<>();
     public static void solution(){
         //fees -> 1.기본시간 2.기본요금 3.단위시간 4.단위요금
@@ -32,17 +31,38 @@ public class CarFee {
             int num = a+b+c+d;
 
             // 차번호
-            int car_num = Integer.valueOf(str[1]);
+            String car_num = str[1];
 
-            // 상태 계산
-            int state=1; //'IN'->1;
-            if(str[2] == "OUT") state=0;
-
-            list.add(new Car(num,car_num,state));
+            list.add(new Car(num,car_num));
         }
 
-        for(Car x : list){
-            System.out.println(x.time + " " + x.number + " " + x.state);
+        Map<String,Integer> map = new HashMap<>();
+        for(int i=0; i<list.size(); i++){
+            boolean flag = false;
+            for(int j=i+1; j<list.size(); j++){
+                if(list.get(i).number.equals(list.get(j).number)){
+                    flag = true;
+                    // 시간 계산
+                    int sum = list.get(j).time - list.get(i).time;
+                    // 요금 계산
+                    int time = fees[1] + ((sum-fees[0]) / fees[2]) * fees[3];  //누적주차시간에서 - fees[0]을 해야하네.
+
+                    map.put(list.get(j).number,map.getOrDefault(list.get(j).number,0) + time);
+
+                    list.remove(j);
+                    list.remove(i);
+                    continue;
+                }
+            }
+            if(!flag){
+                int sum = lastTime - list.get(i).time;
+                int time = fees[1] + ((sum-fees[0]) / fees[2]) * fees[3];
+                map.put(list.get(i).number,map.getOrDefault(list.get(i).number,0)+time);
+            }
+        }
+
+        for(String x : map.keySet()){
+            System.out.println(map.get(x));
         }
     }
     public static void main(String[] args) {
@@ -54,6 +74,8 @@ public class CarFee {
         for(int i=0; i<4; i++){
             fees[i] = sc.nextInt();
         }
+
+        sc.nextLine();
         for(int j=0; j<9; j++){
             records[j] = sc.nextLine();
         }
