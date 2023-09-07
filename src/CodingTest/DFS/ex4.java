@@ -15,6 +15,7 @@ public class ex4 {
     static boolean[] ch;
 
     public static void DFS(String tmp){
+        // 역순 비교 (문자열 -> equals)
         if(tmp.length() == s.length()) {
             String tmp2="";
             for(int i=tmp.length()-1; i>=0; i--){
@@ -52,6 +53,7 @@ public class ex4 {
             }
             if(cnt>1) return;
         }
+        // 살아남으면 경우의 수 시작.
         DFS("");
     }
     public static void main(String[] args) {
