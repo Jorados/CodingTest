@@ -18,7 +18,7 @@ public class ex5 {
     static int answer=Integer.MAX_VALUE;
     static int[] dx = {0,1,0,-1};
     static int[] dy = {1,0,-1,0};
-    static boolean flag = true;
+    static boolean flag = false;
     public static void BFS(int x,int y,int[][] dis,boolean[][] ch){
         Queue<Point2> Q = new LinkedList<>();
         Q.offer(new Point2(x,y));
@@ -28,10 +28,16 @@ public class ex5 {
             for(int i=0; i<4; i++){
                 int nx = poll.x + dx[i];
                 int ny = poll.y + dy[i];
-                if(nx>=0 && nx<n && ny>=0 && ny<n && map[nx][ny]!=2 && !ch[nx][ny]){
-                    ch[nx][ny]=true;
-                    Q.offer(new Point2(nx,ny));
-                    dis[nx][ny] = dis[poll.x][poll.y] + 1;
+                if(nx>=0 && nx<n && ny>=0 && ny<n && !ch[nx][ny]){
+                    if(map[nx][ny]!=2 && map[nx][ny]!=1){
+                        ch[nx][ny]=true;
+                        Q.offer(new Point2(nx,ny));
+                        dis[nx][ny] = dis[poll.x][poll.y] + 1;
+                    }
+                    if(map[nx][ny]==1){
+                        ch[nx][ny]=true;
+                        dis[nx][ny] = dis[poll.x][poll.y] + 1;
+                    }
                 }
             }
         }
@@ -45,6 +51,7 @@ public class ex5 {
                 }
             }
         }
+
         if(cnt2==cnt) flag=true;
     }
 

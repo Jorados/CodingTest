@@ -6,10 +6,9 @@ import java.util.Stack;
 
 // 겹쳐진 압축 해제
 public class ex2 {
-
     public static String s;
     public static String answer="";
-    public static String answer2="";
+
     public static void solution(){
         Stack<Character> stack = new Stack<>();
         char[] ctr = s.toCharArray();
