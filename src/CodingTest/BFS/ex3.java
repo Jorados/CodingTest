@@ -21,14 +21,14 @@ public class ex3 {
                 int x = Q.poll();
                 int[] root = {x-1,x+1,x*2};
                 for(int nx : root){
-                    // 홀수 레벨과 짝수 레벨을 나눠야함.
+                    // 홀수 레벨과 짝수 레벨을 나눠야함. -> 왜?
                     if(nx >= 0 && nx <= 200000 && ch[nx]==0){
                         ch[nx] = 1;
                         Q.offer(nx);
                     }
                 }
             }
-            e++;
+            e+=answer;
             if(e>200000) return -1;
             else if(ch[e] == 1) return answer;
         }
