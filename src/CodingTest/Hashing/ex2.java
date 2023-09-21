@@ -18,6 +18,7 @@ public class ex2 {
             }
         }
 
+        // 문제에서 문자가 a,b,c,d,e로만 구성된다고 해서 이렇게 직접 구성.
         Map<Character,Integer> map2 = new HashMap<>();
         map2.put('a',0);
         map2.put('b',0);
