@@ -25,7 +25,6 @@ public class ex1303 {
             }
         }
     }
-
     public static void DFS_B(int x,int y){
         ch[x][y]=true;
         for(int i=0; i<4; i++){
