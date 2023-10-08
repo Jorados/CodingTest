@@ -1,4 +1,4 @@
-package CodingTest.graph;
+package CodingTest.Graph;
 
 
 import java.util.*;
