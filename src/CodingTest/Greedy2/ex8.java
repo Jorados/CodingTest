@@ -32,18 +32,18 @@ public class ex8 {
         pq.offer(new Dot(vex,0));
 
         while (!pq.isEmpty()){
-            Dot tmp = pq.poll(); // 여기서 뺄때 정렬된채로 나온다.
-            int v = tmp.vex;
+            Dot poll = pq.poll();
 
-            if(!ch[v]){
-                ch[v]=true;
-                answer+=tmp.cost;
-                for(Dot x : graph.get(v)){
-                    if(!ch[x.vex]) {
+            if(!ch[poll.vex]){
+                ch[poll.vex] = true;
+                answer += poll.cost;
+                for(Dot x : graph.get(poll.vex)){
+                    if(!ch[x.vex]){
                         pq.offer(new Dot(x.vex,x.cost));
                     }
                 }
             }
+
         }
     }
     public static void main(String[] args) {
