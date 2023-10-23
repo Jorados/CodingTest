@@ -10,7 +10,7 @@ public class ex6118 {
     static int n;
     static int m;
     static ArrayList<ArrayList<Integer>> graph;
-    static int a,b,c; // 숨는곳 , 거리 , 같은거리 헛간의 개수
+    static int a=0,b=-1,c=0; // 숨는곳 , 거리 , 같은거리 헛간의 개수
 
     public static void solution(){
         Queue<Integer> Q = new LinkedList<>();
@@ -18,14 +18,14 @@ public class ex6118 {
         boolean[] ch = new boolean[n+1];
         ch[1] = true;
 
-        a = Integer.MAX_VALUE;
+
         while (!Q.isEmpty()){
             int size = Q.size();
             c = size;
-
+            a = Integer.MAX_VALUE;
             for(int s=0; s<size; s++){
                 int now = Q.poll();
-                a = Math.min(now,c);
+                a = Math.min(now,a);
 
                 for(int nx : graph.get(now)){
                     if(!ch[nx]){
@@ -43,7 +43,7 @@ public class ex6118 {
         n = sc.nextInt();
         graph = new ArrayList<>();
         for(int i=0; i<=n; i++){
-            graph = new ArrayList<>();
+            graph.add(new ArrayList<>());
         }
 
         m = sc.nextInt();
