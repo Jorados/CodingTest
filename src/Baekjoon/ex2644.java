@@ -16,7 +16,7 @@ public class ex2644 {
     static int answer=0;
 
     static ArrayList<ArrayList<Integer>> graph;
-    public static void BFS(){
+    public static int BFS(){
         Queue<Integer> Q = new LinkedList<>();
         Q.offer(a);
         ch[a]=true;
@@ -29,7 +29,7 @@ public class ex2644 {
                 for(int nx : graph.get(x)){
                     if(nx == b) {
                         answer = L+1;
-                        break;
+                        return answer;
                     }
                     if(!ch[nx]){
                         ch[nx]=true;
@@ -39,6 +39,7 @@ public class ex2644 {
             }
             L++;
         }
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -62,7 +63,7 @@ public class ex2644 {
         }
 
         ch = new boolean[n+1];
-        BFS();
-        System.out.println(answer);
+
+        System.out.println(BFS());
     }
 }
