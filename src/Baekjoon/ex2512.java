@@ -24,7 +24,6 @@ public class ex2512 {
         long rt = arr[n-1];
         while (lt<=rt){
             long mid = (lt + rt) / 2;
-
             long budget = 0;
 
             for(int i=0; i<n; i++){
