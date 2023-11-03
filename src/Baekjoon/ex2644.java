@@ -6,64 +6,52 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-// 촌수계산 - DFS / BFS 둘다될듯
+// 촌수계산
 public class ex2644 {
 
-    static int n; // 사람수
-    static int a,b;
+    static int n,answer=-1;
+    static ArrayList<ArrayList<Integer>> graph;
+    static int st,et;
     static int m;
     static boolean[] ch;
-    static int answer=0;
-
-    static ArrayList<ArrayList<Integer>> graph;
-    public static int BFS(){
-        Queue<Integer> Q = new LinkedList<>();
-        Q.offer(a);
-        ch[a]=true;
-
-        int L=0;
-        while (!Q.isEmpty()){
-            int size = Q.size();
-            for(int i=0; i<size; i++){
-                Integer x = Q.poll();
-                for(int nx : graph.get(x)){
-                    if(nx == b) {
-                        answer = L+1;
-                        return answer;
-                    }
-                    if(!ch[nx]){
-                        ch[nx]=true;
-                        Q.offer(nx);
-                    }
-                }
-            }
-            L++;
+    public static void DFS(int L,int v){
+        if(v==et){
+            answer = L;
+            return;
         }
-        return -1;
+
+        for(int nv : graph.get(v)){
+            if(!ch[nv]){
+                ch[nv]=true;
+                DFS(L+1,nv);
+                ch[nv]=false;
+            }
+        }
+
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        n = sc.nextInt();
-        a = sc.nextInt();
-        b =  sc.nextInt();
+        Scanner sc =new Scanner(System.in);
+        n =  sc.nextInt();
         graph = new ArrayList<>();
 
         for(int i=0; i<=n; i++){
             graph.add(new ArrayList<>());
         }
+
+        st = sc.nextInt();
+        et = sc.nextInt();
+
         m = sc.nextInt();
         for(int i=0; i<m; i++){
-            int l = sc.nextInt();
-            int r = sc.nextInt();
+            int a = sc.nextInt();
+            int b = sc.nextInt();
 
-            graph.get(l).add(r);
-            graph.get(r).add(l);
+            graph.get(a).add(b);
+            graph.get(b).add(a);
         }
-
         ch = new boolean[n+1];
-
-        System.out.println(BFS());
+        DFS(0,st);
+        System.out.println(answer);
     }
 }

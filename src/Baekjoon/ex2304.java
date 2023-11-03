@@ -41,7 +41,6 @@ public class ex2304 {
         for(int i=0; i<list.size(); i++){
             if(list.get(i).y >= nowH){
                 answer += (list.get(i).x - nowX) * nowH;
-
                 nowX = list.get(i).x;
                 nowH = list.get(i).y;
             }
@@ -68,6 +67,7 @@ public class ex2304 {
             }
         }
 
+        // 마지막 최고높이 기둥 더해주기
         answer += maxY;
     }
     public static void main(String[] args) {
