@@ -20,11 +20,8 @@ class Gel implements Comparable<Gel>{
     }
 }
 public class ex4485 {
-
     static int n;
-
     static int[][] map;
-    static boolean[][] ch;
     static int[][] dis;
     static int[] dx = {0,1,0,-1};
     static int[] dy = {1,0,-1,0};
