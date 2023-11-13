@@ -23,10 +23,10 @@ public class ex16401 {
             for(int x : snack) cnt += x/mid;
 
             if(cnt>=m){
-                if(answer<mid) answer=mid;
+                answer = mid;
                 lt = mid+1;
             }
-            else if(cnt<m){
+            else{
                 rt = mid-1;
             }
         }
