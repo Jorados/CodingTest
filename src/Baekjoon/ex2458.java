@@ -16,35 +16,27 @@ public class ex2458 {
 
     // 각 좌표에서 해당 좌표에 도달가능한지
 
-    public static void DFS1(int now, int et, boolean[] ch,boolean[] visited){
+    public static void DFS1(int now, int et, boolean[] ch,boolean[] visited,int st){
         if(now==et){
-            ch[now]=true;
+            ch[st]=true;
             return;
         }
 
-        for(int i=1; i<=n; i++){
-            for(int nx : graph.get(i)){
-                if(!visited[nx]){
-                    visited[nx]=true;
-                    DFS1(nx,et,ch,visited);
-                    visited[nx]=false;
-                }
+        for(int nx : graph.get(now)){
+            if(!visited[nx]){
+                visited[nx]=true;
+                DFS1(nx,et,ch,visited,st);
+                visited[nx]=false;
             }
         }
     }
 
     // DFS1에서 해당좌표에 도달하지 못한 좌표의 graph.get()으로 도달할수있는지 최종점검
-    public static void DFS2(int now,boolean[] ch,boolean[] visited2){
-        if(!ch[now]) {
-            ch[now] = true;
-            return;
-        }
-
+    public static void DFS2(int now,boolean[] ch){
         for(int nx : graph.get(now)){
-            if(!visited2[nx]){
-                visited2[nx]=true;
-                DFS2(nx,ch,visited2);
-                visited2[nx]=false;
+            if(!ch[nx]){
+                ch[nx]=true;
+                DFS2(nx,ch);
             }
         }
     }
@@ -68,28 +60,31 @@ public class ex2458 {
 
         for(int i=1; i<=n; i++){
             boolean[] ch = new boolean[n+1]; // 메인 체크배열
-            boolean[] visited = new boolean[n+1]; // 체크배열
-            DFS1(0,i,ch,visited);
-
+            // 각 좌표에서 해당 i 좌표에 도달할수있는지.
             for(int j=1; j<=n; j++){
-                if(!ch[j]) flag1 = true;
+                boolean[] visited = new boolean[n+1]; // 체크배열
+                DFS1(j,i,ch,visited,j);
+
+                if(i!=j && !ch[j]) flag1 = true;
             }
 
             // 못들린 곳이 있으면 해당좌표에서 다른 좌표에 갈수있는지 체크.
             if(flag1){
-                boolean[] visited2 = new boolean[n+1]; // 체크배열
-                DFS2(i,ch, visited2);
+                DFS2(i,ch);
+            }
 
-                for(int j=1; j<=n; j++){
-                    if(!ch[j]) {
-                        flag2 = false;
-                        break;
-                    }
+            for(int j=1; j<ch.length; j++){
+                if(!ch[j]) {
+                    flag2 = false;
                 }
             }
 
-            if(flag1 || flag2) answer++;
+            if(!flag1 || flag2) answer++;
+            flag1 = false;
+            flag2 = true;
         }
+
+
 
         System.out.println(answer);
     }
