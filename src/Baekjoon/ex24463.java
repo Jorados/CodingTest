@@ -19,6 +19,7 @@ class Point11 {
         this.y = y;
     }
 }
+
 public class ex24463 {
     static int n,m;
     static char[][] map;
