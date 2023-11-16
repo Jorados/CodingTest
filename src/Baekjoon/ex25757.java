@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class ex25757{
-
     static int n;
     static String ctr;
     static String[] human;
