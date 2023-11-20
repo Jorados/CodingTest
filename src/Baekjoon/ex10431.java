@@ -17,7 +17,6 @@ public class ex10431 {
                 if(arr[j]>arr[i]) answer++;
             }
         }
-
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
