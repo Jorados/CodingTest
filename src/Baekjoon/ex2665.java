@@ -7,6 +7,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 // 미로만들기
+//
 class Room2{
     int x;
     int y;
